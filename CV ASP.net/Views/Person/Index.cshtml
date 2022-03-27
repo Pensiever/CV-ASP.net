@@ -1,0 +1,161 @@
+﻿@using CV_ASP.net.Tools
+@model IndexViewModel
+@inject SessionManager _session
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@*<p>Bonjour : @ViewContext.HttpContext.Session.GetString("ScreenName")</p>*@
+<p>Bonjour : @_session.CurrentUser?.ScreenName</p>
+@if (!(_session.CurrentUser is null))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
+<style type="text/css">
+    #vertical thead,#vertical tbody{
+        display:inline-block;
+    }
+</style>
+<table id="vertical">
+    <thead>
+        <tr>
+            <th colspan="3">
+                Id
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Name
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Surname
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Adress
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                SmartPhone
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Email
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Miscellaneous
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Quality 1.
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Quality 2.
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Quality 3.
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Faults
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Last Degree
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Persons)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adress)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gsm)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Misc)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstQuality)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondQuality)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThirdQuality)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstFault)
+                    @Html.DisplayFor(modelItem => item.SecondFault)
+                    @Html.DisplayFor(modelItem => item.ThirdFault)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastDegree)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id }) |
+                    @Html.ActionLink("Select", "Select", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

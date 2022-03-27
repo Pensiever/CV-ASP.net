@@ -69,25 +69,6 @@ namespace CV_ASP.net.Tools
             };
         }
 
-        public static List<Profession> ToASPList(IEnumerable<Profession> p)
-        {
-            List<Profession> professions = new List<Profession>();
-            foreach (Profession profession in p)
-            {
-                Profession pp = new Profession();
-                {
-                    pp.Id = profession.Id;
-                    pp.PeriodBegin = profession.PeriodBegin;
-                    pp.PeriodEnd = profession.PeriodEnd;
-                    pp.Employer = profession.Employer;
-                    pp.Position = profession.Position;
-                    pp.CVId = profession.CVId;
-                };
-                professions.Add(pp);
-            };
-            return professions;
-        }
-
         public static ASP.Profession ToASP(this DAL.Profession p)
         {
             return new Profession
@@ -125,22 +106,6 @@ namespace CV_ASP.net.Tools
                 Position = p.Position,
                 CVId = p.CVId
             };
-        }
-
-        public static List<TechSkill> ToASPList(IEnumerable<TechSkill> s)
-        {
-            List<TechSkill> skills = new List<TechSkill>();
-            foreach (TechSkill skill in s)
-            {
-                TechSkill ss = new TechSkill();
-                {
-                    ss.Id = skill.Id;
-                    ss.Skill = skill.Skill;
-                    ss.CVId = skill.CVId;
-                };
-                skills.Add(ss);
-            };
-            return skills;
         }
 
         public static ASP.TechSkill ToASP(this DAL.TechSkill s)

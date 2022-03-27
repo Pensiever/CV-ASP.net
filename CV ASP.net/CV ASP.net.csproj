@@ -12,10 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\CV\" />
     <Folder Include="Views\Profession\" />
     <Folder Include="Views\Skill\" />
-    <Folder Include="Views\Person\" />
   </ItemGroup>
 
   <ItemGroup>

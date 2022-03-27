@@ -20,9 +20,13 @@ namespace CV_ASP.net.Controllers
             return Content(_service.InstanceID.ToString());
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
-            return View();
+            IndexViewModel model = new IndexViewModel();
+
+            model.Persons = _service.GetAll().Select(a => a.ToASP());
+            
+            return View(model);
         }
 
         [AuthRequired]
@@ -72,6 +76,15 @@ namespace CV_ASP.net.Controllers
             _service.Update(f.FormToDAL());
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Select(int? Id)
+        {
+            if (Id == null)
+            {
+                return NotFound();
+            }
+            return RedirectToAction("Index", "CV", Id);
         }
     }
 }

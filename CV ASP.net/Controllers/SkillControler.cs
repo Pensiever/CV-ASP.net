@@ -15,12 +15,6 @@ namespace CV_ASP.net.Controllers
             _service = service;
         }
 
-        [HttpGet]
-        public JsonResult GetProfessionById(int Id)
-        {
-            return Json(Mappers.ToASPList((IEnumerable<TechSkill>)_service.GetByCV(Id)), System.Web.Mvc.JsonRequestBehavior.AllowGet);
-        }
-
         [AuthRequired]
         public IActionResult Create()
         {

@@ -1,0 +1,212 @@
+﻿@using CV_ASP.net.Tools
+@model CVViewModel
+@inject SessionManager _session
+
+@{
+    ViewData["Title"] = "Selected CV";
+}
+
+<h1>Welcome @_session.CurrentUser?.ScreenName</h1>
+
+<h2>Your CV: </h2>
+
+<style type="text/css">
+    #vertical thead,#vertical tbody{
+        display:inline-block;
+    }
+</style>
+
+<p>Personal Info</p>
+
+<table id="vertical">
+    <thead>
+        <tr>
+            <th colspan="3">
+                Id
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Name
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Surname
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Adress
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                SmartPhone
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Email
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Miscellaneous
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Quality 1.
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Quality 2.
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Quality 3.
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Faults
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Last Degree
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.Personal.Id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.Surname
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.Adress
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.Gsm
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.Email
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.Misc
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.FirstQuality
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.SecondQuality
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.ThirdQuality
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.FirstFault
+                @Model.Personal.SecondFault
+                @Model.Personal.ThirdFault
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.Personal.LastDegree
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Technical Skills</p>
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">
+                Skills
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Skills)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skill)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>Professional Experience</p>
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">
+                Period
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Employer
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Position
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Professions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PeriodBegin) - @Html.DisplayFor(modelItem => item.PeriodEnd)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employer)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
