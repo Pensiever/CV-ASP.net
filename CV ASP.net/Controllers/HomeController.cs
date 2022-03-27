@@ -13,6 +13,11 @@ namespace CV_ASP.net.Controllers
             _logger = logger;
         }
 
+        public IActionResult CV()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();

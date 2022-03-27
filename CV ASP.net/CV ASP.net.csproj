@@ -11,4 +11,15 @@
     <ProjectReference Include="..\ModelGlobal_DataAccessLayer\ModelGlobal_DataAccessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\CV\" />
+    <Folder Include="Views\Profession\" />
+    <Folder Include="Views\Skill\" />
+    <Folder Include="Views\Person\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+  </ItemGroup>
+
 </Project>

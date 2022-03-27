@@ -27,7 +27,7 @@ namespace CV_ASP.net.Controllers
             if(!ModelState.IsValid) return View(form);
 
             _repo.Register(form.Email, form.Password);
-            return RedirectToAction("Index", "Article");
+            return RedirectToAction("Index", "Person");
         }
         
         public IActionResult Login()
@@ -45,7 +45,7 @@ namespace CV_ASP.net.Controllers
             //HttpContext.Session.SetInt32("Id", currentUser.Id);
             _sessionManager.CurrentUser = currentUser;
 
-            return RedirectToAction("Index", "Article");
+            return RedirectToAction("Index", "Person");
         }
 
         public IActionResult LogOut()

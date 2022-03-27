@@ -1,0 +1,1 @@
+﻿Exec AddUser 'Gandalf@TheGrey.me', 'Test1234='

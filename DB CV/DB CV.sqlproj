@@ -83,4 +83,7 @@
   <ItemGroup>
     <None Include="DB CV.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
+  </ItemGroup>
 </Project>
