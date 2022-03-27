@@ -6,5 +6,5 @@
     [Employer] NVARCHAR(50) NULL, 
     [Position] NVARCHAR(50) NULL, 
     [CV Id] INT NULL, 
-    CONSTRAINT [FK_to_CV2] FOREIGN KEY ([CV Id]) REFERENCES [Personnal Info]([Id])
+    CONSTRAINT [FK_to_CV2] FOREIGN KEY ([CV Id]) REFERENCES [Personal Info]([Id])
 )
