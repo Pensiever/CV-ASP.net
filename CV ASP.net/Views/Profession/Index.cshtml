@@ -1,0 +1,55 @@
+﻿@using CV_ASP.net.Tools
+@model IEnumerable<ModelGlobal_DataAccessLayer.Models.Profession>
+@inject SessionManager _session
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@if (!(_session.CurrentUser is null))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Period
+            </th>
+            <th>
+                Employer
+            </th>
+            <th>
+                Position
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PeriodBegin) - @Html.DisplayFor(modelItem => item.PeriodEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

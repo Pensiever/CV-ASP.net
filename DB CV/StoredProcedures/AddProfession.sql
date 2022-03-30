@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[AddProfession]
 	@periodBegin DATE,
 	@periodEnd DATE,
-	@employer VARCHAR(50),
-	@position VARCHAR(50),
+	@employer NVARCHAR(50),
+	@position NVARCHAR(50),
 	@cvId INT
 AS
 BEGIN

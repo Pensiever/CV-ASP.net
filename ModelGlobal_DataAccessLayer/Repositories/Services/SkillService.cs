@@ -29,15 +29,24 @@ namespace ModelGlobal_DataAccessLayer.Services
             {
                 Id = (int)reader["Id"],
                 Skill = (string?)reader["Skill"],
-                CVId = (int)reader["CVId"]
+                CVId = (int)reader["CV Id"]
             };
+        }
+
+        public IEnumerable<TechSkill> GetAll()
+        {
+            Connection cnx = new Connection(_connectionString);
+
+            Command cmd = new Command("SELECT * FROM [Technical Skills]");
+
+            return cnx.ExecuteReader(cmd, Converter);
         }
 
         public IEnumerable<TechSkill> GetByCV(int Id)
         {
             Connection cnx = new Connection(_connectionString);
 
-            Command cmd = new Command("SELECT * FROM [Technical Skills] WHERE CVId = @id");
+            Command cmd = new Command("SELECT * FROM [Technical Skills] WHERE [CV Id] = @id");
             cmd.AddParameter("id", Id);
 
             return cnx.ExecuteReader(cmd, Converter);

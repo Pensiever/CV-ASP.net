@@ -1,26 +1,28 @@
 ﻿using CV_ASP.net.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using ModelGlobal_DataAccessLayer.Repositories;
 
 namespace CV_ASP.net.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IPersonRepository _service;
+        public HomeController(IPersonRepository service, ILogger<HomeController> logger)
         {
             _logger = logger;
+            _service = service;
         }
 
-        public IActionResult CV()
+        public IActionResult Instance()
         {
-            return View();
+            return Content(_service.InstanceID.ToString());
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_service.GetAll());
         }
 
         public IActionResult Privacy()

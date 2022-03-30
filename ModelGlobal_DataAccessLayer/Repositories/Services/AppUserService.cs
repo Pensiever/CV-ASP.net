@@ -25,7 +25,7 @@ namespace ModelGlobal_DataAccessLayer.Services
             return new AppUser
             {
                 Id = (int)reader["Id"],
-                Email = reader["Email"].ToString()
+                Email = (string)reader["Email"]
             };
         }
 

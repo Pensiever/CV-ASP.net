@@ -16,7 +16,7 @@
     }
 </style>
 
-<p>Personal Info</p>
+<h3>Personal Info</h3>
 
 <table id="vertical">
     <thead>
@@ -146,8 +146,8 @@
         </tr>
     </tbody>
 </table>
-
-<p>Technical Skills</p>
+<br />
+<h3>Technical Skills</h3>
 
 <table>
     <thead>
@@ -168,23 +168,19 @@
         }
     </tbody>
 </table>
-
-<p>Professional Experience</p>
+<br />
+<h3>Professional Experience</h3>
 
 <table>
     <thead>
         <tr>
-            <th colspan="3">
+            <th>
                 Period
             </th>
-        </tr>
-        <tr>
-            <th colspan="3">
+            <th colspan = "15">
                 Employer
             </th>
-        </tr>
-        <tr>
-            <th colspan="3">
+            <th colspan = "15">
                 Position
             </th>
         </tr>
@@ -196,14 +192,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.PeriodBegin) - @Html.DisplayFor(modelItem => item.PeriodEnd)
                 </td>
-            </tr>
-            <tr>
-                <td>
+                <td colspan = "15">
                     @Html.DisplayFor(modelItem => item.Employer)
                 </td>
-            </tr>
-            <tr>
-                <td>
+                <td colspan = "15">
                     @Html.DisplayFor(modelItem => item.Position)
                 </td>
             </tr>

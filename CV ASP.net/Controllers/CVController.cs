@@ -12,28 +12,19 @@ namespace CV_ASP.net.Controllers
         private IProfessionRepository _proservice;
         private ISkillRepository _sservice;
 
-        public CVController(IPersonRepository service)
+        public CVController(IPersonRepository service, IProfessionRepository proservice, ISkillRepository sservice)
         {
             _pservice = service;
+            _proservice = proservice;
+            _sservice = sservice;
         }
 
-        public CVController(IProfessionRepository service)
-        {
-            _proservice = service;
-        }
-
-        public CVController(ISkillRepository service)
-        {
-            _sservice = service;
-        }
-
-        public IActionResult Index(int Id)
+        public IActionResult Index(int id)
         {
             CVViewModel model = new CVViewModel();
-
-            model.Personal = _pservice.GetById(Id).ToASP();
-            model.Skills = _sservice.GetByCV(Id).Select(a => a.ToASP());
-            model.Professions = _proservice.GetByCV(Id).Select(a => a.ToASP());
+            model.Personal = _pservice.GetById(id).ToASP();
+            model.Skills = _sservice.GetByCV(id).Select(a => a.ToASP());
+            model.Professions = _proservice.GetByCV(id).Select(a => a.ToASP());
 
             return View(model);
         }

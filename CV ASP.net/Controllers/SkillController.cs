@@ -6,25 +6,34 @@ using ModelGlobal_DataAccessLayer.Repositories;
 
 namespace CV_ASP.net.Controllers
 {
-    public class SkillControler : Controller
+    public class SkillController : Controller
     {
         private ISkillRepository _service;
+        private IPersonRepository _perservice;
 
-        public SkillControler(ISkillRepository service)
+        public SkillController(ISkillRepository service, IPersonRepository perservice)
         {
             _service = service;
+            _perservice = perservice;
+        }
+
+        public IActionResult Index()
+        {
+            return View(_service.GetAll());
         }
 
         [AuthRequired]
         public IActionResult Create()
         {
             SkillForm form = new SkillForm();
+            form.CVList = _perservice.GetAll().Select(a => a.ToASP());
             return View(form);
         }
 
         [HttpPost]
         public IActionResult Create(SkillForm form)
         {
+            form.CVList = _perservice.GetAll().Select(a => a.ToASP());
             if (!ModelState.IsValid)
             {
                 return View(form);

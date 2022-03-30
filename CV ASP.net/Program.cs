@@ -38,6 +38,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+#region Configuration pour le décimal dans les formulaires
+CultureInfo culture = new CultureInfo("fr-FR");
+culture.NumberFormat.NumberDecimalSeparator = ".";
+
+CultureInfo.DefaultThreadCurrentCulture = culture;
+CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+app.UseRequestLocalization();
+
+#endregion
+
 app.UseSession();
 
 app.UseHttpsRedirection();
@@ -49,6 +60,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Person}/{action=Index}/{id?}");
 
 app.Run();

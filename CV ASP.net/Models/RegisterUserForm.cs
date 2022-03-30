@@ -14,7 +14,7 @@ namespace CV_ASP.net.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Les deux champs password doivent correspondre")]
+        [Compare("Password", ErrorMessage = "The two passwords must be the same")]
         public string ConfirmPassword { get; set; }
     }
 }

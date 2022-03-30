@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[AddSkill]
-	@skill VARCHAR(200),
+	@skill NVARCHAR(200),
 	@cvId int
 AS
 BEGIN

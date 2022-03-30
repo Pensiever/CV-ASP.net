@@ -9,6 +9,7 @@ namespace ModelGlobal_DataAccessLayer.Repositories
 {
     public interface ISkillRepository
     {
+        IEnumerable<TechSkill> GetAll();
         IEnumerable<TechSkill> GetByCV(int Id);
         bool Create(TechSkill skill);
         bool Delete(int Id);

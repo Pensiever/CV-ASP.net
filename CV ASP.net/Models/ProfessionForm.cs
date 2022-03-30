@@ -9,11 +9,12 @@ namespace CV_ASP.net.Models
         [HiddenInput]
         public int Id { get; set; }
         [DataType(DataType.Date)]
-        public DateOnly? PeriodBegin { get; set; }
+        public DateTime? PeriodBegin { get; set; }
         [DataType(DataType.Date)]
-        public DateOnly? PeriodEnd { get; set; }
+        public DateTime? PeriodEnd { get; set; }
         public string? Employer { get; set; }
         public string? Position { get; set; }
         public int? CVId { get; set; }
+        public IEnumerable<Person>? CVList { get; set; }
     }
 }

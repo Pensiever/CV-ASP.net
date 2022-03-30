@@ -28,19 +28,28 @@ namespace ModelGlobal_DataAccessLayer.Services
             return new Profession
             {
                 Id = (int)reader["Id"],
-                PeriodBegin = (DateOnly?)reader["PeriodBegin"],
-                PeriodEnd = (DateOnly?)reader["PeriodEnd"],
+                PeriodBegin = (DateTime?)reader["PeriodBegin"],
+                PeriodEnd = (DateTime?)reader["PeriodEnd"],
                 Employer = (string?)reader["Employer"],
                 Position = (string?)reader["Position"],
-                CVId = (int?)reader["CVId"]
+                CVId = (int?)reader["CV Id"]
             };
+        }
+
+        public IEnumerable<Profession> GetAll()
+        {
+            Connection cnx = new Connection(_connectionString);
+
+            Command cmd = new Command("SELECT * FROM [Professional Experience]");
+
+            return cnx.ExecuteReader(cmd, Converter);
         }
 
         public IEnumerable<Profession> GetByCV(int Id)
         {
             Connection cnx = new Connection(_connectionString);
 
-            Command cmd = new Command("SELECT * FROM [Professional Experience] WHERE CVId = @id");
+            Command cmd = new Command("SELECT * FROM [Professional Experience] WHERE [CV Id] = @id");
             cmd.AddParameter("id", Id);
 
             return cnx.ExecuteReader(cmd, Converter);

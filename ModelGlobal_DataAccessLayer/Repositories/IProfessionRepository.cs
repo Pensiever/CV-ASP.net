@@ -9,6 +9,7 @@ namespace ModelGlobal_DataAccessLayer.Repositories
 {
     public interface IProfessionRepository
     {
+        IEnumerable<Profession> GetAll();
         IEnumerable<Profession> GetByCV(int Id);
         bool Create(Profession profession);
         bool Delete(int Id);

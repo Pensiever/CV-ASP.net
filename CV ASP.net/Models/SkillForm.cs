@@ -11,5 +11,6 @@ namespace CV_ASP.net.Models
         public string? Skill { get; set; }
         [Required]
         public int CVId { get; set; }
+        public IEnumerable<Person>? CVList { get; set; }
     }
 }

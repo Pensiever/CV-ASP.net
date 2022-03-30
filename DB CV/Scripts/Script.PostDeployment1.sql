@@ -11,3 +11,4 @@ Post-Deployment Script Template
 */
 
 Exec AddUser 'Gandalf@TheGrey.me', 'Test1234='
+Exec AddUser 'Dumbledor@Albus.me', 'Test1234='

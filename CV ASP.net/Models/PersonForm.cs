@@ -15,7 +15,6 @@ namespace CV_ASP.net.Models
         [Required]
         public string Adress { get; set; }
         [Required]
-        [Phone]
         public int Gsm { get; set; }
         [Required]
         [EmailAddress]
