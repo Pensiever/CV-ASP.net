@@ -21,130 +21,136 @@
         display:inline-block;
     }
 </style>
-<table id="vertical">
+<table id="vertical" class="table">
     <thead>
-        <tr>
-            <th colspan="3">
+        <tr class="table-primary">
+            <th>
                 Id
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-success">
+            <th>
                 Name
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-primary">
+            <th>
                 Surname
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-success">
+            <th>
                 Adress
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-primary">
+            <th>
                 SmartPhone
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-success">
+            <th>
                 Email
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-primary">
+            <th>
                 Miscellaneous
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-success">
+            <th>
                 Quality 1.
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-primary">
+            <th>
                 Quality 2.
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-success">
+            <th>
                 Quality 3.
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-primary">
+            <th>
                 Faults
             </th>
         </tr>
-        <tr>
-            <th colspan="3">
+        <tr class="table-success">
+            <th>
                 Last Degree
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <br />
             </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Persons)
-        {
-            <tr>
+            <tr class="table-primary">
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    @foreach (var item in Model.Persons)
+                    {
+                        @Html.DisplayFor(modelItem => item.Id)
+                    }
                 </td>
             </tr>
-            <tr>
+            <tr class="table-success">
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-primary">
                 <td>
                     @Html.DisplayFor(modelItem => item.Surname)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-success">
                 <td>
                     @Html.DisplayFor(modelItem => item.Adress)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-primary">
                 <td>
                     @Html.DisplayFor(modelItem => item.Gsm)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-success">
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-primary">
                 <td>
                     @Html.DisplayFor(modelItem => item.Misc)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-success">
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstQuality)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-primary">
                 <td>
                     @Html.DisplayFor(modelItem => item.SecondQuality)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-success">
                 <td>
                     @Html.DisplayFor(modelItem => item.ThirdQuality)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-primary">
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstFault)
                     @Html.DisplayFor(modelItem => item.SecondFault)
                     @Html.DisplayFor(modelItem => item.ThirdFault)
                 </td>
             </tr>
-            <tr>
+            <tr class="table-success">
                 <td>
                     @Html.DisplayFor(modelItem => item.LastDegree)
                 </td>
@@ -156,6 +162,5 @@
                     @Html.ActionLink("Select", "Select", new { id=item.Id })
                 </td>
             </tr>
-        }
     </tbody>
 </table>
