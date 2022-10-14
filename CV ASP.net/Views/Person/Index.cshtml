@@ -90,14 +90,16 @@
         </tr>
     </thead>
     <tbody>
-            <tr class="table-primary">
-                <td>
-                    @foreach (var item in Model.Persons)
-                    {
-                        @Html.DisplayFor(modelItem => item.Id)
-                    }
-                </td>
-            </tr>
+        <tr class="table-primary">
+            <td>
+                @foreach (var item in Model.Persons)
+                {
+                    @Html.DisplayFor(modelItem => item.Id)
+                }
+            </td>
+        </tr>
+        @foreach (var item in Model.Persons)
+        {
             <tr class="table-success">
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
@@ -162,5 +164,6 @@
                     @Html.ActionLink("Select", "Select", new { id=item.Id })
                 </td>
             </tr>
+        }
     </tbody>
 </table>

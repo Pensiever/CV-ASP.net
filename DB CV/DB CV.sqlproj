@@ -83,9 +83,9 @@
     <RefactorLog Include="DB CV.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DB CV.publish.xml" />
+    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
+    <None Include="DB CV.publish.xml" />
   </ItemGroup>
 </Project>
